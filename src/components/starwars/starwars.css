@@ -1,0 +1,29 @@
+
+
+.inputSection {
+    margin-left: auto;
+    margin-right: auto;
+
+    display: flex;
+    justify-content: center;
+}
+
+input {
+    width: 100px;
+    padding: 5px;
+    font-size: 16px;
+    border-width: 2px;
+    border-color: #ffe81f;
+    color: white;
+    border-style: solid;
+    border-radius: 7px;
+}
+
+button {
+    color: #FFE81F;
+    font-size: 16px;
+    padding: 0.5em;
+    border-radius: 10px;
+    border: 2px solid #FFE81F;
+    background-color: #000000;
+}

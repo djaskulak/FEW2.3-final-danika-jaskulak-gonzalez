@@ -1,3 +1,4 @@
+import './starwars.css';
 import { useState } from "react";
 
 
@@ -7,7 +8,7 @@ function StarWars () {
 
     return (
         <div className="StarWars">
-            <div className='input'>
+            <div className='inputSection'>
                 <input type='number' min="1" max="83" placeholder='Character ID'
                     onChange={e => {
                         setID(e.target.value)
@@ -20,8 +21,16 @@ function StarWars () {
                 >Enter</button>
             </div>
 
-            <div className="characterData">
-
+            <div className="data">
+                {data && 
+                    <div>
+                        <div>Name: {data.name}</div>
+                        <div>Height: {data.height}</div>
+                        <div>Mass: {data.mass}</div>
+                        <div>Hair Color: {data.hair_color}</div>
+                        <div>Eye Color: {data.eye_color}</div>
+                    </div>
+                }
             </div>
         </div>
     )
