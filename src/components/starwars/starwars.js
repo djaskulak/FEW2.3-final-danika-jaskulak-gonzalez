@@ -5,6 +5,7 @@ import { useState } from "react";
 function StarWars () {
     const [id, setID] = useState()
     const [data, setData] = useState(null)
+    const [list, setList] = useState([])
 
     return (
         <div className="StarWars">
@@ -24,11 +25,22 @@ function StarWars () {
             <div className="data">
                 {data && 
                     <div>
-                        <div>Name: {data.name}</div>
-                        <div>Height: {data.height}</div>
-                        <div>Mass: {data.mass}</div>
-                        <div>Hair Color: {data.hair_color}</div>
-                        <div>Eye Color: {data.eye_color}</div>
+                        <div>
+                            <h3>Character Details:</h3>
+                            <div>Name: {data.name}</div>
+                            <div>Height: {data.height}</div>
+                            <div>Mass: {data.mass}</div>
+                            <div>Hair Color: {data.hair_color}</div>
+                            <div>Eye Color: {data.eye_color}</div>
+                        </div>
+
+                        <button 
+                            onClick={e => {
+                                setList([...list, data])
+                            }}
+                        >
+                            Save
+                        </button>
                     </div>
                 }
             </div>
