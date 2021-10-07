@@ -18,6 +18,13 @@ function StarWars () {
                     <div>Hair Color: {char.hair_color}</div>
                     <div>Eye Color: {char.eye_color}</div>
                 </div>
+
+                <div>
+                    <h3>Homeworld:</h3>
+                    <div>Planet: {char.homeworld.name}</div>
+                    <div>Terrain: {char.homeworld.terrain}</div>
+                    <div>Population: {char.homeworld.population}</div>
+                </div>
             </div>
         )
     })
@@ -49,6 +56,13 @@ function StarWars () {
                             <div>Eye Color: {data.eye_color}</div>
                         </div>
 
+                        <div>
+                            <h3>Homeworld:</h3>
+                            <div>Planet: {data.homeworld.name}</div>
+                            <div>Terrain: {data.homeworld.terrain}</div>
+                            <div>Population: {data.homeworld.population}</div>
+                        </div>
+
                         <button 
                             onClick={e => {
                                 setList([...list, data])
@@ -73,6 +87,11 @@ function StarWars () {
         console.log(json)
 
         if(!json.detail){
+            const homeworldRes = await fetch(json.homeworld)
+            const homeworldJson = await homeworldRes.json()
+
+            json.homeworld = homeworldJson
+
             setData(json)
         }
     }
