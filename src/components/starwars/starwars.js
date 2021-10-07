@@ -26,6 +26,17 @@ function StarWars () {
                     <div>Terrain: {char.homeworld.terrain}</div>
                     <div>Population: {char.homeworld.population}</div>
                 </div>
+
+                <div>
+                    <h3>Appears in:</h3>
+                    {char.films.map(film => {
+                        return(
+                            <div>
+                                {film.title}
+                            </div>
+                        )
+                    })}
+                </div>
             </div>
         )
     })
@@ -65,6 +76,17 @@ function StarWars () {
                                 <div>Population: {data.homeworld.population}</div>
                             </div>
 
+                            <div>
+                                <h3>Appears in:</h3>
+                                {data.films.map(film => {
+                                    return(
+                                        <div>
+                                            {film.title}
+                                        </div>
+                                    )
+                                })}
+                            </div>
+
                             <button 
                                 onClick={e => {
                                     setList([...list, data])
@@ -91,9 +113,13 @@ function StarWars () {
 
         if(!json.detail){
             const homeworldRes = await fetch(json.homeworld)
-            const homeworldJson = await homeworldRes.json()
+            const homeworldJSON = await homeworldRes.json()
 
-            json.homeworld = homeworldJson
+            const filmsRes = await Promise.all(json.films.map(film => fetch(film)))
+            const filmsJSON = await Promise.all(filmsRes.map(res => res.json()))
+
+            json.homeworld = homeworldJSON
+            json.films = filmsJSON
 
             setData(json)
         }
