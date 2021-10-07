@@ -27,3 +27,13 @@ button {
     border: 2px solid #FFE81F;
     background-color: #000000;
 }
+
+.content {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.data {
+    background-color: #686868;
+    border-radius: 20px;
+}
