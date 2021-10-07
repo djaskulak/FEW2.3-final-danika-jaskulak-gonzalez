@@ -12,11 +12,11 @@ function StarWars () {
             <div className="savedCard">
                 <div>
                     <h3>Character Details:</h3>
-                    <div>Name: {data.name}</div>
-                    <div>Height: {data.height}</div>
-                    <div>Mass: {data.mass}</div>
-                    <div>Hair Color: {data.hair_color}</div>
-                    <div>Eye Color: {data.eye_color}</div>
+                    <div>Name: {char.name}</div>
+                    <div>Height: {char.height}</div>
+                    <div>Mass: {char.mass}</div>
+                    <div>Hair Color: {char.hair_color}</div>
+                    <div>Eye Color: {char.eye_color}</div>
                 </div>
             </div>
         )
