@@ -7,6 +7,21 @@ function StarWars () {
     const [data, setData] = useState(null)
     const [list, setList] = useState([])
 
+    const savedList = list.map(char => {
+        return (
+            <div className="savedCard">
+                <div>
+                    <h3>Character Details:</h3>
+                    <div>Name: {data.name}</div>
+                    <div>Height: {data.height}</div>
+                    <div>Mass: {data.mass}</div>
+                    <div>Hair Color: {data.hair_color}</div>
+                    <div>Eye Color: {data.eye_color}</div>
+                </div>
+            </div>
+        )
+    })
+
     return (
         <div className="StarWars">
             <div className='inputSection'>
@@ -43,6 +58,10 @@ function StarWars () {
                         </button>
                     </div>
                 }
+            </div>
+
+            <div className="savedList">
+                {list && savedList}
             </div>
         </div>
     )
